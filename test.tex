@@ -1,0 +1,122 @@
+\documentclass[12pt,xcolor=dvipsnames,aspectratio=1610]{beamer}
+\usetheme{agro}
+% \usetheme[compressminiframes]{sorbonne}
+% \setbeamertemplate{headline}{} % supprimer la barre de défilement en haut
+
+\input{util.tex}
+
+
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc} 
+\usepackage{listings} 
+\lstset{
+language=Python,
+basicstyle=\small, % \footnotesize, \small
+morekeywords={self},              % Add keywords here
+keywordstyle= \bf \color{deepblue},
+emph={MyClass,__init__},          % Custom highlighting
+emphstyle= \bf \color{deepred},    % Custom highlighting style
+stringstyle=\color{deepgreen},
+frame=tb,                         % Any extra options here
+showstringspaces=false,
+numbers=left,
+numberstyle=\scriptsize\textcolor{gray},
+commentstyle=\color{deepgreen},
+}
+
+
+
+
+
+ 
+
+\title{ Analyse des données textuelles \& \newline échanges homme-machine} 
+\author{Vincent Guigue \& Laure Soulier\newline  \small \url{vincent.guigue@agroparistech.fr},  \small \url{laure.soulier@isir.upmc.fr}}%\\ \url{https://vguigue.github.io}}
+
+\date{\normalsize 29 mai 2024\\ GdR MaDICS, Blois} 
+
+\begin{document}
+
+\maketitle
+
+% si necessaire
+% \part{Transition Numérique}
+
+
+\section{Introduction} 
+\subsection{}
+
+% \input{intro.tex}
+
+%%%%%%%%% FRAME %%%%%%%%%
+\begin{frame}\frametitle{TEST 1}
+  \begin{itemize}
+  \item  bla
+  \item bla
+  \end{itemize}
+
+  \begin{block}{Style d'un bloc}
+    mon message
+  \end{block}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section[Cycle]{Cycle des données:\\ Extraction d'information\\ Génération de texte}
+\subsection{}
+
+%%%%%%%%% FRAME %%%%%%%%%
+% besoin de fragile pour le code
+\begin{frame}[fragile]\frametitle{Test de code}
+
+Réglé sur le python par défaut
+
+\begin{lstlisting}
+def mafonction(a,b):
+    return -1
+
+print(mafonction(3,4))
+\end{lstlisting}
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%% FRAME %%%%%%%%%
+\begin{frame}\frametitle{Test biblio}
+
+  pour une ref ''à la main``
+
+  \vfillb % si necessaire
+
+  
+  \bibref{mon titre}{conférence, 2023}{auteur}
+  \bibref{mon titre 2 }{conférence 2, 2024}{autre auteur }
+  \bibrefR{mon mini titre 3 }{conférence 3, 2024}{autre auteur }
+  \bibrefR{mon mini titre 4 }{conférence 4, 2024}{autre auteur }
+
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%% FRAME %%%%%%%%%
+\begin{frame}\frametitle{La bonne manière d'organiser les slides}
+  
+  \begin{columns}
+    \column{.5\textwidth}
+    \textbf{Titre 1}
+    \column{.5\textwidth}
+    \textbf{Titre 2}
+  \end{columns}
+  
+  \begin{columns}
+    \column{.5\textwidth}
+    un premier text ici
+    \column{.5\textwidth}
+    
+    Une image
+    \begin{center}
+      \includegraphics[width=.5\textwidth,keepaspectratio]{logos/bib.png}
+    \end{center}
+  \end{columns}
+\end{frame}
+%%%%%%%%%%%%%%%%%%%%%%%%%
+\end{document}

@@ -1,0 +1,500 @@
+% Name           : beamerthemeagro.sty
+% Author         : Thomas Robert (http://www.thomas-robert.fr)
+% Version        : 0.1
+% Created on     : 02.03.2016
+% Copyright      : Copyright (c) 2016 by Thomas Robert. All rights reserved.
+% License        : This file may be distributed and/or modified under the
+%                  GNU Public License.
+% Description    : Beamer theme with LIP6/UPMC inspired design.
+%                  Based on HSRM Beamer Theme by Benjamin Weiss
+%                  (https://github.com/benjamin-weiss/hsrmbeamertheme)
+
+\ProvidesPackage{beamerthemeagro}[2022/09/16]
+
+% \usepackage{eso-pic}
+\usepackage{tikz}
+\usepackage{amsmath,amssymb}%,amsfonts}
+\usepackage{ulem}
+\usepackage{animate}
+\usepackage{pdfpages}
+\usepackage{hyperref}
+\usepackage{pbox}
+\usepackage{multirow} 
+\usepackage{subfigure, wrapfig}   
+\usepackage{graphicx}
+\usepackage{array}
+\usepackage{rotating}
+\usepackage{bm} 
+
+\newif\if@doSectionPage
+\@doSectionPagefalse
+\DeclareOption{nosectionpages}{\@doSectionPagetrue}
+
+\newif\if@doCompressMiniframes
+\@doCompressMiniframesfalse
+\DeclareOption{compressminiframes}{\@doCompressMiniframestrue}
+
+\newif\if@doFlama
+\@doFlamafalse
+\DeclareOption{flama}{\@doFlamatrue}
+
+\ProcessOptions
+
+\mode<presentation>
+
+\newenvironment{miniblock}{\setbeamercolor{block body}{parent=palette secondary} %\tt
+\vspace*{2mm}
+\begin{beamerboxesrounded}{}}{\small
+\end{beamerboxesrounded}
+}
+
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepred}{rgb}{0.6,0,0}
+\definecolor{deepgreen}{rgb}{0,0.5,0}
+
+\def\shortPres{y }
+\def\longPres{n }
+\let\longueur\longPres
+
+
+% A mettre dans le style 
+\setbeamertemplate{itemize item}{\raisebox{0.2em}{\scalebox{0.9}{$\blacktriangleright$}}}
+\setbeamertemplate{itemize subitem}{\raisebox{0.2em}{\scalebox{0.8}{$\blacktriangleright$}}}
+\setbeamertemplate{itemize subsubitem}{\raisebox{0.2em}{\scalebox{0.7}{$\blacktriangleright$}}}
+\setbeamertemplate{enumerate item}[circle]%{\raisebox{0.2em}{\scalebox{1}{$\bigcirc$}},fg=black}
+\setbeamertemplate{enumerate item}{%
+  \usebeamercolor[bg]{item projected}%
+  \raisebox{1.5pt}{\colorbox{bg}{\color{fg}\footnotesize\insertenumlabel}}%
+}
+
+
+%---------------------------------------------------------------------
+% TOC
+%---------------------------------------------------------------------
+\useoutertheme[subsection=false,shadow]{miniframes}
+\setbeamertemplate{section in toc}[sections numbered]
+\setbeamertemplate{subsection in toc}[subsections numbered]
+\useinnertheme{rectangles}
+
+\if@doCompressMiniframes%
+\patchcmd{\slideentry}{\advance\beamer@tempdim by -.05cm}{\advance\beamer@tempdim by\beamer@vboxoffset\advance\beamer@tempdim by\beamer@boxsize\advance\beamer@tempdim by 1.2\pgflinewidth}{}{}
+\patchcmd{\slideentry}{\kern\beamer@tempdim}{\advance\beamer@tempdim by 2pt\advance\beamer@tempdim by\wd\beamer@sectionbox\kern\beamer@tempdim}{}{}
+\fi%
+
+\let\beamer@writeslidentry@miniframeson=\beamer@writeslidentry
+\def\beamer@writeslidentry@miniframesoff{%
+	\expandafter\beamer@ifempty\expandafter{\beamer@framestartpage}{}% does not happen normally
+	{%else
+		% removed \addtocontents commands
+		\clearpage\beamer@notesactions%
+	}
+}
+\newcommand*{\miniframeson}{\let\beamer@writeslidentry=\beamer@writeslidentry@miniframeson}
+\newcommand*{\miniframesoff}{\let\beamer@writeslidentry=\beamer@writeslidentry@miniframesoff}
+
+\newcommand{\backupbegin}{
+	\newcounter{framenumberappendix}
+	\setcounter{framenumberappendix}{\value{framenumber}}
+}
+\newcommand{\backupend}{
+	\addtocounter{framenumberappendix}{-\value{framenumber}}
+	\addtocounter{framenumber}{\value{framenumberappendix}}
+}
+
+%---------------------------------------------------------------------
+% Captions with numbers
+%---------------------------------------------------------------------
+\setbeamertemplate{caption}[numbered]
+
+\setlength{\parskip}{0.5em}
+
+%---------------------------------------------------------------------
+% TOC
+%---------------------------------------------------------------------
+
+\setbeamerfont{section in toc}{shape=\sc,size=\large}
+\setbeamerfont{subsection in toc}{size=\small}
+%\pretocmd{\beamer@sectionintoc}{\vspace{-0.18cm}}{}{} % uncomment for more compact spacing btwn sections in toc
+%\pretocmd{\beamer@subsectionintoc}{\vspace{-0.18cm}}{}{} % uncomment for more compact spacing btwn  sub-sections in toc
+
+%---------------------------------------------------------------------
+% Colors
+%---------------------------------------------------------------------
+
+% Primary Colors
+% Primary Colors
+\definecolor{agroGreenDark}{RGB}{0,75,76}  % vert foncé logo
+\definecolor{agroGreenMid}{RGB}{100,187,188} % vert foncé logo éclairci 
+\definecolor{agroGreenLight}{RGB}{195,245,232}
+
+\definecolor{agroGreen2Dark}{RGB}{0,181,123}  % vert foncé logo
+\definecolor{agroGreen2Mid}{RGB}{75,210,160} % vert foncé logo éclairci 
+\definecolor{agroGreen2Light}{RGB}{150,250,200 }
+
+\definecolor{agroBlueDark}{rgb}{0.141176471,0.160784314,0.329411765}  % bleu foncé logo
+\definecolor{agroBlueMid}{rgb}{0.270588235,0.28627451,0.407843137} % bleu foncé logo éclairci 
+\definecolor{agroBlueLight}{rgb}{0.89019608,0.91372549,0.92941176}
+
+%\definecolor{agroRedDark}{rgb}{0.588235294,0,0.058823529}
+\definecolor{agroRed}{rgb}{0.631372549,0.196078431,0.17254902}
+\definecolor{agroRedDark}{rgb}{0.470588235,0.149019608,0.129411765}
+\definecolor{agroRedLight}{rgb}{0.949019608,0.819607843,0.811764706}
+
+\definecolor{agroBlue2Dark}{rgb}{0.117647059,0.345098039,0.454901961} % bleu ciel logo agro eclairci
+\definecolor{agroBlue2Mid}{rgb}{0.325490196,0.662745098,0.82745098} % bleu ciel logo agro
+\definecolor{agroBlue2Light}{rgb}{0.862745098,0.933333333,0.964705882} % bleu ciel logo assombri
+
+%\definecolor{agroGreen}{rgb}{0.4745098,0.7254902,0.29411765}
+%\definecolor{agroGreenDark}{rgb}{0.25882353,0.42745098,0.21568627}
+
+% General
+\setbeamercolor{normal text}{fg=agroBlueDark}
+\setbeamercolor{structure}{fg=agroBlueDark}
+\setbeamercolor{alerted text}{fg=white}
+\setbeamercolor{example text}{fg=white}
+\setbeamercolor{copyright text}{fg=agroBlueLight}
+\setbeamercolor{palette primary}{fg=agroGreenDark}
+\setbeamercolor{palette secondary}{fg=agroGreenDark,bg=agroGreenLight}
+\setbeamercolor{palette tertiary}{fg=black,bg=agroGreenLight}
+\setbeamercolor{palette quaternary}{fg=white, bg=agroGreenDark}
+% Header
+\setbeamercolor{section in head/foot}{fg=agroGreenLight,bg=agroGreenDark}
+% Titlepage
+\setbeamercolor{title}{parent=normal text, fg=agroGreenDark}
+\setbeamercolor{subtitle}{parent=normal text, fg=agroGreenDark}
+\setbeamercolor{institute}{parent=normal text, fg=agroGreenDark}
+\setbeamercolor{author}{fg=agroGreenDark}
+\setbeamercolor{date}{fg=agroGreenDark}
+% Content
+\setbeamercolor{frametitle}{parent=palette quaternary}
+% Blocks
+\setbeamertemplate{blocks}[rounded][shadow=false]
+\setbeamercolor{block title}{parent=palette quaternary}
+\setbeamercolor{block body}{parent=palette secondary}
+\setbeamercolor{block title example}{fg=white, bg=agroBlue2Mid}
+\setbeamercolor{block body example}{fg=agroBlue2Dark, bg=agroBlue2Light}
+\setbeamercolor{block title alerted}{fg=white, bg=agroRed}
+\setbeamercolor{block body alerted}{fg=agroRedDark, bg=agroRedLight}
+% Notes
+\setbeamercolor{note page}{fg=agroBlueDark,bg=agroBlueLight}
+\setbeamercolor{note title}{fg=white, bg=agroBlueDark}
+\setbeamercolor{note date}{parent=note title}
+% Page Number
+\setbeamercolor{page number in head/foot}{fg=agroBlueDark}
+
+%---------------------------------------------------------------------
+% Fonts
+%---------------------------------------------------------------------
+
+% Titlepage
+\setbeamerfont{title}{size=\fontsize{18}{18}}
+\setbeamerfont{subtitle}{size=\fontsize{12}{14}}
+\setbeamerfont{date}{size=\fontsize{8}{10}}
+\setbeamerfont{author}{size=\fontsize{12}{15}}
+\setbeamerfont{institute}{size=\fontsize{8}{10}}
+% Section
+\setbeamerfont{section title}{size=\LARGE}
+% Content
+\setbeamerfont{frametitle}{size=\Large}
+\setbeamerfont{copyright text}{size=\tiny}
+\setbeamerfont{block title}{size=\large}
+\setbeamerfont{block title alerted}{size=\large}
+
+\if@doFlama%
+	\usepackage{fontspec}
+
+	% Load font
+	\newfontfamily\Light{Flama-Light}
+	\newfontfamily\Book{Flama-Book}
+	\newfontfamily\Medium{Flama-Medium}
+	\setsansfont[BoldFont={Flama-Basic},ItalicFont={Flama-Light-Italic},BoldItalicFont={Flama-Basic-Italic}]{Flama-Light}
+
+	% Fontstyle
+	\setbeamerfont{title}{family=\Light}
+	\setbeamerfont{subtitle}{family=\Light}
+	\setbeamerfont{frametitle}{family=\Light}
+	\setbeamerfont{copyright text}{family=\Light}
+	\setbeamerfont{block title}{family=\Book}
+	\setbeamerfont{block title alerted}{family=\Book}
+	\setbeamerfont{alerted text}{family=\Medium}
+	\setbeamerfont{caption name}{family=\Book}
+	\renewcommand\UrlFont{\Book}
+
+	% Itemize
+	\newcommand{\rightTextArrow}{→}
+	\setbeamertemplate{itemize item}{\rightTextArrow}
+	\setbeamertemplate{itemize subitem}{\rightTextArrow}
+	\setbeamertemplate{itemize subsubitem}{\rightTextArrow}
+\fi
+
+
+%---------------------------------------------------------------------
+% Titlepage
+%---------------------------------------------------------------------
+
+% Titlepage structure
+\def\maketitle{\ifbeamer@inframe\titlepage\else\frame[plain]{\titlepage}\fi}
+\def\titlepage{\usebeamertemplate{title page}}
+\setbeamertemplate{title page} 
+{
+	% Add background to title page
+	\begin{tikzpicture}[overlay]
+	\node at (7.0,-5) {\includegraphics[width=1.01\paperwidth]{./logos/bg_agro_1610.png}};
+	\end{tikzpicture}
+
+	\hspace*{0.1\textwidth}
+	\begin{minipage}[b][\paperheight]{0.9\textwidth}
+	%\vspace*{5mm}
+	%\includegraphics[height=14mm]{images/logos}\par
+	\vspace*{25mm}
+	\ifx\inserttitle\@empty%
+	\else%
+		{\usebeamerfont{title}\usebeamercolor[fg]{title}\MakeUppercase{\inserttitle}\par}%
+		\vspace*{5mm}
+	\fi%
+	\ifx\insertsubtitle\@empty%
+	\else% 
+		{\usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par}%
+		\vspace*{5mm}
+	\fi%
+	\ifx\insertdate\@empty%
+	\else%
+		{\usebeamerfont{date}\usebeamercolor[fg]{date}\insertdate\par}%
+	\fi%
+
+    %\vspace*{13mm}
+
+	\vfill
+
+	\ifx\insertauthor\@empty%
+	\else%
+		{\usebeamerfont{author}\usebeamercolor[fg]{author}\insertauthor\par}%
+	\fi%
+	\ifx\insertinstitut\@empty%
+	\else%
+		\vspace*{3mm}
+		{\usebeamerfont{institute}\usebeamercolor[fg]{institute}\insertinstitute\par}%
+	\fi%
+	\vspace*{20mm}
+	\end{minipage}
+}
+
+%---------------------------------------------------------------------
+% Sectionpages
+%---------------------------------------------------------------------
+
+\if@doSectionPage\@empty
+\else
+% Insert frame with section title at every section start
+\AtBeginSection[]
+{
+\begingroup
+\setbeamercolor{background canvas}{bg=agroGreenDark}
+\begin{frame}[plain]
+\centering
+\vfill\usebeamerfont{section title}\textcolor{white}{
+\begin{minipage}{.8\textwidth}
+\Huge\textsc{\insertsection}
+\end{minipage}
+}\vfill
+\end{frame}
+\addtocounter{framenumber}{-1}
+\endgroup
+}
+\fi
+
+%---------------------------------------------------------------------
+% Frametitle
+%---------------------------------------------------------------------
+
+\setbeamertemplate{frametitle}
+{
+\vspace*{-.4mm}
+\begin{beamercolorbox}[wd=\paperwidth,leftskip=0.2cm,rightskip=0.3cm,ht=3ex,dp=0.5ex]{frametitle}
+	\hspace*{-.3cm}
+	%\raisebox{-0.2cm}{\includegraphics[width=0.15cm]{./logos/sciences}}  
+	%\raisebox{-0.2cm}{\includegraphics[width=0.65cm]{./logos/logoWhiteS}}  
+	\raisebox{-0.2cm}{\includegraphics[width=0.95cm]{./logos/logo_agro.png}}  
+        % \raisebox{-0.2cm}{\includegraphics[width=0.65cm]{./logos/logo_agro}}  
+	\hspace*{.2cm}
+	\ifx\insertframesubtitle\empty
+        %\vspace*{3pt}
+        %
+      \usebeamerfont{frametitle}\insertframetitle%
+	  \vspace*{-2pt}
+    \else
+	%\vspace*{2pt}
+    \usebeamerfont{frametitle}\insertframetitle~{-- \large\it \insertframesubtitle}%
+\fi
+% \hfill \raisebox{-1.5mm}{\includegraphics[width=1.45cm]{./logos/logoWhite}}
+\end{beamercolorbox}
+}
+
+%%---------------------------------------------------------------------
+%% Footline
+%%---------------------------------------------------------------------
+\newcommand{\insertfoottitle}{\insertshorttitle}
+
+\newcommand{\foottitle}[1]{
+	\renewcommand{\insertfoottitle}{#1}
+}
+
+\newcommand{\speaker}[1]{
+	\renewcommand{\insertspeaker}{#1}
+}
+\newcommand{\insertspeaker}{}
+
+\usenavigationsymbolstemplate{}
+\setbeamertemplate{footline}
+{%
+\begin{beamercolorbox}[wd=\textwidth,ht=3ex,dp=1.5ex,leftskip=0.3cm,rightskip=0.3cm]{structure}%
+\ifthenelse{\equal{\insertspeaker}{}}{
+	%\insertfoottitle
+}{
+	\insertfoottitle{} -- \insertspeaker
+}
+\hfill\usebeamerfont{page number in head/foot}%
+\insertframenumber /\inserttotalframenumber%
+\end{beamercolorbox}%
+}
+
+
+%%--------------------------------------------------------------------
+% Ajout entete Vincent
+
+% \setbeamertemplate{headline}
+% {
+%   \leavevmode%
+%   \hbox{%
+%   \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,right]{section in head/foot}%
+%     \usebeamerfont{section in head/foot}\thesection.\ \insertsectionhead\hspace*{2ex}
+%   \end{beamercolorbox}%
+%   \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,left]{subsection in head/foot}%
+%     \usebeamerfont{subsection in head/foot}\hspace*{2ex}\insertsubsectionhead
+%   \end{beamercolorbox}}%
+%   \vskip0pt%
+% }
+
+\setbeamercolor{mini frame}{fg=agroGreenDark}
+
+\makeatletter
+\def\insertsubsectionnavigationhorizontal#1#2#3{%
+    %\hbox to #1
+    {{%
+        \usebeamerfont{subsection in head/foot}\usebeamercolor[fg]{subsection in head/foot}
+        \beamer@currentsubsection=0%
+        \def\sectionentry##1##2##3##4##5{}%
+        \def\slideentry##1##2##3##4##5##6{%
+        \ifnum##6=\c@part\ifnum##2>0\ifnum##3>0%
+                \beamer@link(##4){%
+                    \usebeamerfont{mini frame}%
+                    \ifnum\c@section=##1%
+                            \ifnum\c@subsection=##2%
+                                    \usebeamercolor[fg]{mini frame}%
+                                    % ##3
+                                    % ##3 num du slide dans la sous section
+                                    % ##5
+                                    \ifnum\c@subsectionslide=##3%
+                                            \usebeamertemplate{mini frame}%\beamer@minislidehilight%
+                                    \else%
+                                            \usebeamertemplate{mini frame in current subsection}%\beamer@minisliderowhilight%
+                                    \fi%
+                            \else%
+                                    \usebeamercolor{mini frame}%
+                                    %\color{fg!50!bg}%
+                                    \usebeamertemplate{mini frame in other subsection}%\beamer@minislide%
+                            \fi%
+                            \hskip .01cm% ecart entre les puces
+                    \else%
+                        \hskip -.055cm% compenser les décalages des autres sections
+                    \fi%
+                            } %\hskip -.05cm%
+        %    }
+        \fi\fi\else%
+        %\hskip -.2cm%
+        \fakeslideentry{##1}{##2}{##3}{##4}{##5}{##6}%
+        \fi
+        \ignorespaces
+        }%
+        #2 %\hskip.1cm  
+        %\setbox\beamer@sectionbox=\hbox{}%
+        %\hskip-1.875ex
+        \dohead%   
+        \box\beamer@sectionbox %\hfil %\hskip.3cm%   
+        #3  
+        }}
+}   
+\makeatother
+
+
+% \usepackage{chngcntr}
+% \counterwithin{framenumber}{section}% Number frames within \section
+
+% \makeatletter
+% \let\oldsection\section
+% \renewcommand{\section}{% Store current \section's frame count
+%   \immediate\write\@auxout{\global\noexpand\@namedef{s@totalsectionframes-\arabic{section}}{\arabic{framenumber}}}%
+%   \oldsection
+% }
+% \AtEndDocument{% Store final \section's frame count
+%   \immediate\write\@auxout{\global\noexpand\@namedef{s@totalsectionframes-\arabic{section}}{\arabic{framenumber}}}%
+% }
+% \newcommand{\inserttotalframenumberbysection}{\csname s@totalsectionframes-\arabic{section}\endcsname}%
+% \makeatother
+
+
+\setbeamertemplate{headline}{%
+  \leavevmode% 
+  \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1.125ex]{section in head/foot}%
+    %\insertsectionnavigationhorizontal{\paperwidth}{\hfil}{\hfil}
+    %
+    \hfill \insertsectionnavigationhorizontal{.92\paperwidth}{\hfil}{\hfil}
+  \end{beamercolorbox} \newline
+  %\hfill
+  %\vspace*{-1pt}
+  \begin{beamercolorbox}[wd=.07\paperwidth,ht=0.2ex]{section in head/foot}%
+        %toto
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.93\paperwidth,ht=0.2ex]{palette tertiary}%
+\end{beamercolorbox}%
+}
+
+\usesectionheadtemplate
+  {
+        %\setcounter{Q}{\insertsectionendpage-\insertsectionstartpage} %
+       % \setcounter{Q}{\inserttotalframenumberbysection} %
+  \colorbox{agroGreenLight}{\color{agroGreenDark} \insertsectionhead 
+  %\textcolor{red}{\arabic{Q} - \insertsectionendpage - \insertsectionstartpage}
+  % \ifnum \inserttotalframenumberbysection<4  
+  % \hbox to .07\paperwidth{ \hfil  \insertsubsectionnavigationhorizontal{.07\paperwidth}{}{}  \hfil }
+  % \else \ifnum \inserttotalframenumberbysection<7  
+  % \hbox to .10\paperwidth{ \hfil \insertsubsectionnavigationhorizontal{.10\paperwidth}{}{} \hfil  }
+  % \else \ifnum \inserttotalframenumberbysection<11  
+  \hbox to .15\paperwidth{ \hfil \insertsubsectionnavigationhorizontal{.15\paperwidth}{}{} \hfil  }
+  % \else
+  % \hbox to .2\paperwidth{ \hfil \insertsubsectionnavigationhorizontal{.2\paperwidth}{}{} \hfil  }
+  % \fi \fi \fi
+%      \hbox to .15\paperwidth{ \hfil \insertsubsectionnavigationhorizontal{.15\paperwidth}{}{} \hfil  }
+  }}
+  {\color{agroGreenLight} \insertsectionhead}
+
+
+  % \setbeamertemplate{frametitle}
+  % {\nointerlineskip
+  %   \leavevmode
+  %   \vbox{%
+  %   \begin{beamercolorbox}[wd=\paperwidth,ht=3ex,dp=1ex]{frametitle}%
+  %     \raggedright\hspace*{1em}\insertframetitle
+  %   \end{beamercolorbox}\nointerlineskip
+  %   \begin{beamercolorbox}[wd=\paperwidth,ht=1ex,dp=1ex]{frametitle}%
+  %      %   \insertsubsectionnavigationhorizontal{\paperwidth}{\hfill}{\hfill}
+  %   \end{beamercolorbox}
+  %   }%
+  % }
+  
+
+
+
+
+\mode
+<all>

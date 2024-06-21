@@ -1,0 +1,217 @@
+
+\usepackage{graphicx}
+\usepackage{epsfig}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+%\usepackage{pstricks}
+\usepackage{bbold}
+
+\def\ok{\color{green!80!black} $\mathbf +$}
+\def\notok{\color{red} $\mathbf -$}
+
+\newcommand\warning{\includegraphics[width=.7cm,keepaspectratio]{../logos/warning}}
+\def\plus{\color{green!80!black} $\mathbf +$}
+\def\moins{\color{red} $\mathbf -$}
+\newcommand\bibref[4][1]{
+\hspace*{-0.5cm}   
+\begin{tabular}{m{0.6cm}m{#1\linewidth}}
+    \includegraphics[width=.7cm,keepaspectratio]{../logos/book}  & 
+      \scriptsize  {\color{black} \textit{#2}}, #3 \newline #4  
+   \end{tabular}
+   }
+
+
+
+\def\espace{\hspace*{5mm}}
+
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\Log}{Log} 
+\DeclareMathOperator*{\Exp}{Exp}
+
+
+\def\cov{\mbox{cov}}
+
+\def\R{\mathbb{R}}
+\def\C{\mathbb{C}}
+\def\N{\mathbb{N}}
+\def\Q{\mathbb{Q}}
+\def\Z{\mathbb{Z}}
+
+\def\esp{\mathbb{E}}
+\def\var{\mathbb{V}}
+\def\P{\mathbb{P}}
+
+
+\def\mA{\mathcal{A}}
+\def\mB{\mathcal{B}} 
+\def\mC{\mathcal{C}}
+
+\def\mP{\mathcal{P}}
+\def\mN{\mathcal{N}}
+\def\mF{\mathcal{F}}
+\def\mH{\mathcal{H}}
+
+\def\bs{\mathbf{s}}
+\def\bx{\mathbf{x}}
+\def\bd{\mathbf{d}}
+\def\bu{\mathbf{u}}
+\def\bi{\mathbf{i}}
+\def\bj{\mathbf{j}}
+\def\by{\mathbf{y}}
+
+
+
+\def\bX{\mathbf{X}}
+\def\by{\mathbf{y}}
+\def\bY{\mathbf{Y}}
+\def\bbeta{\mathbf{\beta}}
+\renewcommand{\epsilon}{\varepsilon}
+
+
+\def\TBE{\emph{\textsc{To be extended.}}}
+\def\TBD{\emph{\textsc{To be done.}}}
+\def\EOP{\emph{\textsc{End Of Proof}}}
+
+
+\newcommand{\myarr}[1]{
+    \begin{array}{ccccccccc} #1
+    \end{array}
+}
+\newcommand{\matrice}[1]{
+   \left[ \begin{array}{ccccccccc} #1
+    \end{array}
+    \right]
+}
+\newcommand{\TOSEE}[1]{ {\red
+\begin{pspicture}(0,0)
+  \rput(-2.3,0){
+    \begin{minipage}[h]{2.5cm}
+      #1
+    \end{minipage}
+}
+\end{pspicture}}
+}
+
+\newcommand{\im}{\mbox{Im}}
+
+\usepackage{float}
+
+\newcommand{\st}{\mbox{s.t. }}
+\newcommand{\tq}{\mbox{tel que }}
+
+\floatstyle{ruled}
+\newfloat{algo}{htbp}{alg}[section]
+\floatname{algo}{Alg.} % titre du caption
+\newcommand{\sign}{\mbox{sign}}
+\newcommand{\energy}{\mathcal{E}}
+\newcommand{\diag}{\mbox{diag}}
+
+\newcommand\bw{\mathbf{w}}
+%\newcommand\bx{\mathbf{x}}
+
+\newcommand{\bbun}{\mbox{\textbb 1}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbZ}{\mathbb{Z}}
+\newcommand{\bbP}{\mathbb{P}}
+\newcommand{\bbK}{\mathbb{K}}
+
+\newcommand{\eme}{^{\grave{e}me}}
+
+\newcommand{\calA}{\mathcal{A}}
+\newcommand{\calB}{\mathcal{B}}
+\newcommand{\calC}{\mathcal{C}}
+\newcommand{\calD}{\mathcal{D}}
+\newcommand{\calE}{\mathcal{E}}
+\newcommand{\calF}{\mathcal{F}}
+\newcommand{\calG}{\mathcal{G}}
+\newcommand{\calH}{\mathcal{H}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\calL}{\mathcal{L}}
+\newcommand{\calM}{\mathcal{M}}
+\newcommand{\calN}{\mathcal{N}}
+\newcommand{\calR}{\mathcal{R}}
+\newcommand{\calS}{\mathcal{S}}
+\newcommand{\calW}{\mathcal{W}}
+
+
+\newcommand{\bz}{\mathbf{z}}
+\newcommand{\calT}{\mathcal{T}}
+\newcommand{\calX}{\mathcal{X}}
+\newcommand{\calY}{\mathcal{Y}}
+
+
+\newcommand{\intall}{\int_{-\infty}^{+\infty}}
+
+\newcommand{\e}{\mbox{e}}
+\newcommand{\dist}{\mbox{dist}}
+\newenvironment{remarquetmp}{\\ \color{red}}{\\}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\la}{\leftarrow}
+\newcommand{\ssi}{\Longleftrightarrow}
+\newcommand{\implique}{\Longrightarrow}
+\newcommand{\Ra}{\Longrightarrow}
+\newcommand{\card}{\mbox{card}}
+\newcommand{\asin}{\mbox{asin}}
+\newcommand{\acos}{\mbox{acos}}
+\newcommand{\second}{{\prime\prime}}
+\newcommand{\tierce}{{\prime\prime\prime}}
+\newcommand{\tsp}{^{\small T}}
+
+\newcommand{\bul}{$\bullet$ }
+
+\newcommand{\tocheck}[1]{{\red \emph{#1}} }
+
+\newcommand{\vect}[1]{\overrightarrow{#1}}
+\newcommand{\1}{\mbox{\textbb 1}}
+
+
+\newcommand{\err}{\calC} %{\mbox{err}}
+%\newcommand\argmin[1]{\underset{\mbox{\footnotesize $#1$}}{\mbox{argmin}}}
+\newcommand{\egint}{\overset{\scriptsize ?}{=}}
+
+\newcommand\figwidth[2]{\includegraphics[width=#1\textwidth]{#2}}
+\newcommand\figheight[2]{\includegraphics[height=#1\textwidth]{#2}}
+
+\newcounter{Exo}[section]
+
+\newenvironment{disarray}%
+ {\everymath{\displaystyle\everymath{}}\array}%
+ {\endarray}
+
+%\makeatletter
+%\newcommand{\exercice}[1]{\stepcounter{Exo} {-3.5ex \@plus -1ex \@minus -.2ex} \textbf{\large Exercice \theExo~: #1} {2.3ex \@plus.2ex}}
+%\makeatother
+\newcommand{\espacereponse}[1]{
+\noindent
+\fbox{
+  \begin{minipage}{1.0\linewidth}
+    \vspace*{#1}
+
+
+    \hspace*{1.0\linewidth}
+  \end{minipage}
+
+}}
+
+\newcommand{\lignehorcentre}{
+\noindent
+%\linethickness{2}
+\begin{picture}(0,0)(0,0)
+ %\psline(0mm,3mm)(15.5cm,3mm) %
+  \line(1,0){450}
+\end{picture}\\
+}
+\newcommand{\myhline}{
+%\vspace*{-0.5cm}
+\noindent
+\begin{picture}(0,-12)(0,-12)
+  \line(1,0){450}
+\end{picture} 
+%\vspace*{-3mm}
+}
+

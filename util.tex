@@ -1,0 +1,324 @@
+
+
+\newcommand{\transp}[2][35]{\color{fg!#1}#2}
+
+
+\newcommand\warning{\includegraphics[width=.7cm,keepaspectratio]{./logos/warning}}
+\def\plus{\color{green!80!black} $\mathbf +$}
+\def\moins{\color{red} $\mathbf -$}
+\def\mix{\color{orange} $\mathbf \approx$}
+\newcommand\bibref[4][1]{
+\hspace*{-0.5cm}   
+\begin{tabular}{m{0.6cm}m{#1\linewidth}}
+    \includegraphics[width=.7cm,keepaspectratio]{./logos/bib}  & 
+      \scriptsize  {\color{black} \textit{#2}}, #3 \newline #4  
+   \end{tabular}
+   }
+\newcommand\bibrefR[4][1]{
+\vspace*{-4mm}
+\hspace*{-0.5cm}   
+\begin{tabular}{m{0.2cm}m{#1\linewidth}}
+   \vspace*{2mm} \includegraphics[width=.4cm,keepaspectratio]{./logos/bib}  & 
+      \tiny  {\color{black} \textit{#2}},  #4  , #3
+    \end{tabular}
+    }
+    
+
+\def\espace{\hspace*{5mm}}
+
+\def\cov{\mbox{cov}}
+
+
+
+
+% \def\Y{\mathcal{Y}}
+% \def\E{\mathbb{E}}
+% \def\R{\mathbb{R}}
+% \def\N{\mathbb{N}}
+% \def\X{\mathcal{X}}
+\def\cX{\mathcal{X}}
+\def\F{\mathcal{F}}
+% \def\cR{\mathcal{R}}
+% \def\bx{\mathbf{x}}
+% \def\by{\mathbf{y}}
+% \def\bw{\mathbf{w}}
+% \def\cN{\mathcal{N}}
+% 
+
+\def\R{\mathbb{R}}
+\def\C{\mathbb{C}}
+\def\N{\mathbb{N}}
+\def\Q{\mathbb{Q}}
+\def\Z{\mathbb{Z}}
+
+\def\esp{\mathbb{E}}
+\def\var{\mathbb{V}}
+\def\P{\mathbb{P}}
+
+
+\def\mA{\mathcal{A}}
+\def\mB{\mathcal{B}}
+\def\mP{\mathcal{P}}
+\def\mN{\mathcal{N}}
+\def\mF{\mathcal{F}}
+\def\mH{\mathcal{H}}
+
+
+\def\bz{\mathbf{z}}
+\def\bZ{\mathbf{Z}}
+
+\def\bi{\mathbf{i}}
+\def\bu{\mathbf{u}}
+\def\bx{\mathbf{x}}
+\def\bX{\mathbf{X}}
+\def\by{\mathbf{y}}
+\def\bY{\mathbf{Y}}
+\def\bz{\bm{z}}
+\def\bZ{\bm{Z}}
+\def\bbeta{\mathbf{\beta}}
+\renewcommand{\epsilon}{\varepsilon}
+
+
+\def\TBE{\emph{\textsc{To be extended.}}}
+\def\TBD{\emph{\textsc{To be done.}}}
+\def\EOP{\emph{\textsc{End Of Proof}}}
+
+%%%%% les petits carrés en fin de démo.
+% \qed is a small square used at the end of proofs
+% \fiqed is a small FILLED square used at the end of proofs
+% \fiqedsym is the square part from \fiqed
+
+
+% \def\qed% for open box with right adjust:
+% {\strut\hfill\lower0.5\baselineskip\vbox{\hrule width
+% 0.5em\nointerlineskip
+%                         \hbox to 0.5em{\vrule height 0.5em
+%                              \hfill
+%                              \vrule height 0.5em}
+%                     \nointerlineskip
+%                     \hrule width 0.5em}\bigbreak}
+% \def\qedsym% for open box symbol only:
+% {\vbox{\hrule width 0.5em\nointerlineskip
+%                         \hbox to 0.5em{\vrule height 0.5em
+%                              \hfill
+%                              \vrule height 0.5em}
+%                     \nointerlineskip
+%                     \hrule width 0.5em}}
+% \def\fiqed% for filled box with right adjust:
+% {\strut\hfill\lower0.5\baselineskip\hbox{\vrule height 1.5ex
+% width 1.5ex
+%                                                depth -.1ex}\bigbreak}
+
+% \def\fiqedsym% for filled box symbol only:
+% {\vrule height 1.5ex width 1.5ex depth -.1ex}
+
+% et ceux de Vincent
+
+\newcommand\vfillb{\vskip0ptplus1filll\relax}
+
+\newcommand{\myarr}[1]{
+    \begin{array}{ccccccccc} #1
+    \end{array}
+}
+\newcommand{\matrice}[1]{
+   \left[ \begin{array}{ccccccccc} #1
+    \end{array}
+    \right]
+}
+\newcommand{\TOSEE}[1]{ {\red
+\begin{pspicture}(0,0)
+  \rput(-2.3,0){
+    \begin{minipage}[h]{2.5cm}
+      #1
+    \end{minipage}
+}
+\end{pspicture}}
+}
+
+\newcommand{\im}{\mbox{Im}}
+
+
+\newcommand{\st}{\mbox{s.t. }}
+\newcommand{\tq}{\mbox{tel que }}
+
+%%\usepackage{float}
+%%\floatstyle{ruled}
+%%\newfloat{algo}{htbp}{alg}[section]
+%%\floatname{algo}{Alg.} % titre du caption
+\newcommand{\sign}{\mbox{sign}}
+\newcommand{\energy}{\mathcal{E}}
+\newcommand{\diag}{\mbox{diag}}
+
+\newcommand\bw{\mathbf{w}}
+%\newcommand\bx{\mathbf{x}}
+
+\newcommand{\bbun}{\mbox{\textbb 1}}
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbC}{\mathbb{C}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbZ}{\mathbb{Z}}
+\newcommand{\bbP}{\mathbb{P}}
+\newcommand{\bbK}{\mathbb{K}}
+
+\newcommand{\eme}{^{\grave{e}me}}
+
+\newcommand{\calA}{\mathcal{A}}
+\newcommand{\calB}{\mathcal{B}}
+\newcommand{\calC}{\mathcal{C}}
+\newcommand{\calD}{\mathcal{D}}
+\newcommand{\calE}{\mathcal{E}}
+\newcommand{\calF}{\mathcal{F}}
+\newcommand{\calG}{\mathcal{G}}
+\newcommand{\calH}{\mathcal{H}}
+\newcommand{\calI}{\mathcal{I}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\calL}{\mathcal{L}}
+\newcommand{\calM}{\mathcal{M}}
+\newcommand{\calN}{\mathcal{N}}
+\newcommand{\calR}{\mathcal{R}}
+\newcommand{\calS}{\mathcal{S}}
+\newcommand{\calU}{\mathcal{U}}
+\newcommand{\calW}{\mathcal{W}}
+
+\newcommand{\calT}{\mathcal{T}}
+\newcommand{\calX}{\mathcal{X}}
+\newcommand{\calY}{\mathcal{Y}}
+
+ \DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+\newcommand{\intall}{\int_{-\infty}^{+\infty}}
+
+\newcommand{\e}{\mbox{e}}
+\newcommand{\dist}{\mbox{dist}}
+\newenvironment{remarquetmp}{\\ \color{red}}{\\}
+\newcommand{\ra}{\rightarrow}
+\newcommand{\la}{\leftarrow}
+\newcommand{\ssi}{\Longleftrightarrow}
+\newcommand{\implique}{\Longrightarrow}
+\newcommand{\Ra}{\Longrightarrow}
+\newcommand{\card}{\mbox{card}}
+\newcommand{\asin}{\mbox{asin}}
+\newcommand{\acos}{\mbox{acos}}
+\newcommand{\second}{{\prime\prime}}
+\newcommand{\tierce}{{\prime\prime\prime}}
+\newcommand{\tsp}{^{\small T}}
+
+\newcommand{\bul}{$\bullet$ }
+
+\newcommand{\tocheck}[1]{{\red \emph{#1}} }
+
+\newcommand{\vect}[1]{\overrightarrow{#1}}
+\newcommand{\1}{\mbox{\textbb 1}}
+
+
+\newcommand{\err}{\calC} %{\mbox{err}}
+
+\newcommand{\egint}{\overset{\scriptsize ?}{=}}
+
+%\newcommand\figwidth[2]{\includegraphics[width=#1\textwidth]{#2}}
+%\newcommand\figheight[2]{\includegraphics[height=#1\textwidth]{#2}}
+%
+%\newcounter{Exo}[section]
+%
+%\newenvironment{disarray}%
+% {\everymath{\displaystyle\everymath{}}\array}%
+% {\endarray}
+%
+%%\makeatletter
+%%\newcommand{\exercice}[1]{\stepcounter{Exo} {-3.5ex \@plus -1ex \@minus -.2ex} \textbf{\large Exercice \theExo~: #1} {2.3ex \@plus.2ex}}
+%%\makeatother
+%\newcommand{\espacereponse}[1]{
+%\noindent
+%\fbox{
+%  \begin{minipage}{1.0\linewidth}
+%    \vspace*{#1}
+%
+%
+%    \hspace*{1.0\linewidth}
+%  \end{minipage}
+%
+%}}
+
+%\newcommand{\lignehorcentre}{
+%\noindent
+%%\linethickness{2}
+%\begin{picture}(0,0)(0,0)
+% %\psline(0mm,3mm)(15.5cm,3mm) %
+%  \line(1,0){450}
+%\end{picture}\\
+%}
+%\newcommand{\myhline}{
+%%\vspace*{-0.5cm}
+%\noindent
+%\begin{picture}(0,-12)(0,-12)
+%  \line(1,0){450}
+%\end{picture} 
+%%\vspace*{-3mm}
+%}
+
+%\makeatletter
+% \renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
+% 	{-3.5ex \@plus -1ex \@minus -.2ex}%
+% 	{2.3ex \@plus.2ex}%
+% 	{\reset@font\Large\bfseries}}
+%\makeatother
+%
+%\newcommand{\exercice}[1]{\stepcounter{Exo} \subsection*{\normalsize Exercice \theExo~: #1\\ 
+%~
+%\vspace*{-0.8cm}\\ 
+%%
+%\lignehorcentre} 
+%\vspace*{-5mm}}
+%
+%\newcommand{\sansexercice}[1]{\subsection*{\normalsize  #1\\ 
+%~
+%\vspace*{-0.8cm}\\ 
+%%
+%\lignehorcentre} 
+%\vspace*{-5mm}}
+
+
+% \newcommand{\correction}[1]{
+% \noindent \textbf{Correction~: }  
+% %\noindent 
+% \begin{center}
+%   \begin{minipage}{0.75\textwidth}
+%     #1
+%   \end{minipage}
+% \end{center}
+% } 
+%\newcommand{\annexe}[1]{ \subsection*{\normalsize Annexe~: #1\\ 
+%~
+%\vspace*{-0.8cm}\\ 
+%%
+%\lignehorcentre} 
+%\vspace*{-5mm}}
+%
+% 
+%\newcommand{\TF}{\mathcal{T_F}}
+%\newcommand{\ITF}{\mathcal{T_F}^{-1}}
+%
+%\newenvironment{remark} {
+%   \begin{center}
+%     \begin{minipage}{15cm}
+%     }{
+%     \end{minipage}
+%   \end{center}
+%}
+%
+%
+%
+%\newsavebox{\fmbox}
+%\newenvironment{exemple}
+%     {
+%\noindent\begin{lrbox}{\fmbox}\begin{minipage}{\textwidth}}
+%     {\end{minipage}\end{lrbox}\fbox{\usebox{\fmbox}}}
+%\newenvironment{rappel}
+%     {\vspace*{10pt} \noindent\begin{lrbox}{\fmbox}\begin{minipage}{\textwidth}}
+%     {\end{minipage}\end{lrbox}\fbox{\usebox{\fmbox}} \vspace*{10pt}}
+%
+%\newcommand{\func} [1]{f(#1)}
+%
+%
